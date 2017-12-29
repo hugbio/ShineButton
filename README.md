@@ -5,7 +5,7 @@
 在[ShineButton](https://github.com/ChadCSong/ShineButton)的基础上修改的。因为原来的ShineButton库直接导入现有项目中编译时会跟现有项目的编译SDK版本冲突，
 而且原来的ShineButton库只能修改图标的形状不能直接使用一张图片当图标。所以只能自己修改和编译这个库了。修改的不多。不喜勿喷。嘿嘿！
 
-![preview](https://github.com/hugbio/ShineButton-master/blob/master/demo_shine_others.gif)
+![preview](https://github.com/hugbio/ShineButton/blob/master/demo_shine_others.gif)
 
 除了上面的效果。也可以直接只用一张图片当图标。
 
