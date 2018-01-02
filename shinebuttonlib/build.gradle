@@ -1,4 +1,9 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+def keystorePropertiesFile = rootProject.file("shinebuttonlib/publish.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     compileSdkVersion 21
@@ -16,11 +21,26 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+        options.addStringOption('encoding', 'UTF-8')
+        options.addStringOption('charSet', 'UTF-8')
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:21.0.3'
+}
+
+publish {
+    userOrg = keystoreProperties['userOrg']
+    groupId = keystoreProperties['groupId']
+    artifactId = keystoreProperties['artifactId']
+    publishVersion = keystoreProperties['publishVersion']
+    desc = keystoreProperties['desc']
+    website = keystoreProperties['website']
 }
 
